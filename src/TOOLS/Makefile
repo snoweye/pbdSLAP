@@ -10,6 +10,11 @@ ATOOLS_C = reshape.o    SL_gridreshape.o
 ITOOLS = picol2row.o  pirow2col.o  pilaprnt.o   pitreecomb.o  pifillpad.o  \
          pichekpad.o  pielset.o    pielset2.o   pielget.o
 
+STOOLS = dsnrm2.o     dsasum.o     slatcpy.o    ssdot.o       smatadd.o   \
+         psmatadd.o   pscol2row.o  psrow2col.o  pslaprnt.o    pstreecomb.o \
+         psfillpad.o  pschekpad.o  pselset.o    pselset2.o    pselget.o #\
+#         pslaread.o   pslawrite.o
+
 DTOOLS = dddot.o      dlatcpy.o    dmatadd.o    pdmatadd.o    pdcol2row.o \
          pdrow2col.o  pdlaprnt.o   pdtreecomb.o pdfillpad.o   pdchekpad.o \
          pdelset.o    pdelset2.o   pdelget.o #\
@@ -18,9 +23,13 @@ DTOOLS = dddot.o      dlatcpy.o    dmatadd.o    pdmatadd.o    pdcol2row.o \
 PKG_ATOOLS = $(ATOOLS:.o=.fo)
 PKG_ATOOLS_C = $(ATOOLS_C:.o=.co)
 PKG_ITOOLS = $(ITOOLS:.o=.fo)
+PKG_STOOLS = $(STOOLS:.o=.fo)
 PKG_DTOOLS = $(DTOOLS:.o=.fo)
 
-all: double
+all: single double
+
+slapackaux:
+	( cd LAPACK; $(MAKE) single )
 
 dlapackaux:
 	( cd LAPACK; $(MAKE) double )
@@ -28,6 +37,10 @@ dlapackaux:
 integer: $(PKG_ATOOLS) $(PKG_ATOOLS_C) $(PKG_ITOOLS)
 	$(ARCH) $(ARCHFLAGS) ../$(SCALAPACKLIB) \
                 $(PKG_ATOOLS) $(PKG_ATOOLS_C) $(PKG_ITOOLS)
+	$(RANLIB) ../$(SCALAPACKLIB)
+
+single: slapackaux integer $(PKG_STOOLS)
+	$(ARCH) $(ARCHFLAGS) ../$(SCALAPACKLIB) $(PKG_STOOLS)
 	$(RANLIB) ../$(SCALAPACKLIB)
 
 double: dlapackaux integer $(PKG_DTOOLS)

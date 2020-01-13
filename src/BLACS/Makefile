@@ -7,17 +7,17 @@ include ../SLmake.inc
 #  --------------------------
 #  The communication routines
 #  --------------------------
-comm = igesd2d_.o dgesd2d_.o \
-       itrsd2d_.o dtrsd2d_.o \
-       igerv2d_.o dgerv2d_.o \
-       itrrv2d_.o dtrrv2d_.o \
-       igebs2d_.o dgebs2d_.o \
-       igebr2d_.o dgebr2d_.o \
-       itrbs2d_.o dtrbs2d_.o \
-       itrbr2d_.o dtrbr2d_.o \
-       igsum2d_.o dgsum2d_.o \
-       igamx2d_.o dgamx2d_.o \
-       igamn2d_.o dgamn2d_.o
+comm = igesd2d_.o sgesd2d_.o dgesd2d_.o \
+       itrsd2d_.o strsd2d_.o dtrsd2d_.o \
+       igerv2d_.o sgerv2d_.o dgerv2d_.o \
+       itrrv2d_.o strrv2d_.o dtrrv2d_.o \
+       igebs2d_.o sgebs2d_.o dgebs2d_.o \
+       igebr2d_.o sgebr2d_.o dgebr2d_.o \
+       itrbs2d_.o strbs2d_.o dtrbs2d_.o \
+       itrbr2d_.o strbr2d_.o dtrbr2d_.o \
+       igsum2d_.o sgsum2d_.o dgsum2d_.o \
+       igamx2d_.o sgamx2d_.o dgamx2d_.o \
+       igamn2d_.o sgamn2d_.o dgamn2d_.o
 
 #  --------------------
 #  The support routines
@@ -46,18 +46,18 @@ internal = BI_HypBS.o BI_HypBR.o BI_IdringBS.o BI_IdringBR.o \
            BI_TreeComb.o BI_BeComb.o BI_MringComb.o \
            BI_ArgCheck.o BI_TransDist.o BI_GetBuff.o BI_UpdateBuffs.o \
            BI_EmergencyBuff.o BI_BlacsErr.o BI_BlacsWarn.o BI_BlacsAbort.o \
-           BI_BuffIsFree.o BI_imvcopy.o BI_dmvcopy.o \
-           BI_ivmcopy.o BI_dvmcopy.o \
+           BI_BuffIsFree.o BI_imvcopy.o BI_smvcopy.o BI_dmvcopy.o \
+           BI_ivmcopy.o BI_svmcopy.o BI_dvmcopy.o \
            BI_Pack.o BI_Unpack.o BI_GetMpiGeType.o BI_GetMpiTrType.o \
-           BI_ivvsum.o BI_dvvsum.o  \
-           BI_ivvamx.o BI_dvvamx.o  \
-           BI_ivvamx2.o BI_dvvamx2.o \
-           BI_ivvamn.o BI_dvvamn.o  \
-           BI_ivvamn2.o BI_dvvamn2.o \
-           BI_iMPI_amx.o BI_dMPI_amx.o \
-           BI_iMPI_amx2.o BI_dMPI_amx2.o \
-           BI_iMPI_amn.o BI_dMPI_amn.o \
-           BI_iMPI_amn2.o BI_dMPI_amn2.o \
+           BI_ivvsum.o BI_svvsum.o BI_dvvsum.o  \
+           BI_ivvamx.o BI_svvamx.o BI_dvvamx.o  \
+           BI_ivvamx2.o BI_svvamx2.o BI_dvvamx2.o \
+           BI_ivvamn.o BI_svvamn.o BI_dvvamn.o  \
+           BI_ivvamn2.o BI_svvamn2.o BI_dvvamn2.o \
+           BI_iMPI_amx.o BI_sMPI_amx.o BI_dMPI_amx.o \
+           BI_iMPI_amx2.o BI_sMPI_amx2.o BI_dMPI_amx2.o \
+           BI_iMPI_amn.o BI_sMPI_amn.o BI_dMPI_amn.o \
+           BI_iMPI_amn2.o BI_sMPI_amn2.o BI_dMPI_amn2.o \
            BI_ContxtNum.o BI_GlobalVars.o \
            BI_TransUserComm.o
 

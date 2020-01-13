@@ -1,6 +1,6 @@
 include ../../SLmake.inc
 
-all: double
+all: single double
 
 #---------------------------------------------------------------------------
 #  The following line defines auxiliary routines needed by the PBLAS tools
@@ -41,15 +41,23 @@ ALLTOOLS = $(ALLCTOOLS)
 #  The C PBLAS tools
 #---------------------------------------------------------------------------
 
+SCTOOLS = PB_Cstypeset.o
+
 DCTOOLS = PB_Cdtypeset.o
 
 #---------------------------------------------------------------------------
 
+STOOLS = $(SCTOOLS)
 DTOOLS = $(DCTOOLS)
 
 #---------------------------------------------------------------------------
 
+PKG_SPTOOLS = $(ALLTOOLS:.o=.co) $(STOOLS:.o=.co)
 PKG_DPTOOLS = $(ALLTOOLS:.o=.co) $(DTOOLS:.o=.co)
+
+single: $(PKG_SPTOOLS)
+	$(ARCH) $(ARCHFLAGS) ../../$(SCALAPACKLIB) $(PKG_SPTOOLS)
+	$(RANLIB) ../../$(SCALAPACKLIB)
 
 double: $(PKG_DPTOOLS)
 	$(ARCH) $(ARCHFLAGS) ../../$(SCALAPACKLIB) $(PKG_DPTOOLS)

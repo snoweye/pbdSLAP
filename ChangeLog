@@ -1,3 +1,7 @@
+2020-01-12: Ver. 0.3-0
+  * Add ScaLAPACK's single precission version including BLACS, PBLAS,
+    TOOLS, REDIST, LAPACK, and ScaLAPACK, ...
+
 2020-01-04: Ver. 0.2-8
   * Fix more [-Wincompatible-pointer-types] warnings.
 
