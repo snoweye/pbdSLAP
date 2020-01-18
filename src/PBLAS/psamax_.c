@@ -369,11 +369,16 @@ l_20:
                   {
                      Mindxl2g( Xgindx, Xlindx, Xinb, Xnb, mycol, Xsrc, npcol );
                      *INDX = Xgindx + 1;
-                     Cigebs2d( ctxt, ROW, &rbtop, 1, 1, ((char*)INDX), 1 );
+                     /*WCC Cigebs2d( ctxt, ROW, &rbtop, 1, 1, ((char*)INDX), 1 ); */
+                     Cigebs2d( ctxt, ROW, &rbtop, 1, 1, ((int*)INDX), 1 );
                   }
                   else
                   {
+/*WCC
                      Cigebr2d( ctxt, ROW, &rbtop, 1, 1, ((char*)INDX), 1,
+                               myrow, maxpos );
+*/
+                     Cigebr2d( ctxt, ROW, &rbtop, 1, 1, ((int*)INDX), 1,
                                myrow, maxpos );
                   }
                }
@@ -529,11 +534,16 @@ l_40:
                   {
                      Mindxl2g( Xgindx, Xlindx, Ximb, Xmb, myrow, Xsrc, nprow );
                      *INDX = Xgindx + 1;
-                     Cigebs2d( ctxt, COLUMN, &cbtop, 1, 1, ((char*)INDX), 1 );
+                     /*WCC Cigebs2d( ctxt, COLUMN, &cbtop, 1, 1, ((char*)INDX), 1 ); */
+                     Cigebs2d( ctxt, COLUMN, &cbtop, 1, 1, ((int*)INDX), 1 );
                   }
                   else
                   {
+/*WCC
                      Cigebr2d( ctxt, COLUMN, &cbtop, 1, 1, ((char*)INDX), 1,
+                               maxpos, mycol );
+*/
+                     Cigebr2d( ctxt, COLUMN, &cbtop, 1, 1, ((int*)INDX), 1,
                                maxpos, mycol );
                   }
                }
