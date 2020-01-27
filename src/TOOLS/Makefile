@@ -31,7 +31,7 @@ all: single double
 slapackaux:
 	( cd LAPACK; $(MAKE) single )
 
-dlapackaux:
+dlapackaux: slapackaux
 	( cd LAPACK; $(MAKE) double )
 
 integer: $(PKG_ATOOLS) $(PKG_ATOOLS_C) $(PKG_ITOOLS)
@@ -43,7 +43,7 @@ single: slapackaux integer $(PKG_STOOLS)
 	$(ARCH) $(ARCHFLAGS) ../$(SCALAPACKLIB) $(PKG_STOOLS)
 	$(RANLIB) ../$(SCALAPACKLIB)
 
-double: dlapackaux integer $(PKG_DTOOLS)
+double: dlapackaux integer single $(PKG_DTOOLS)
 	$(ARCH) $(ARCHFLAGS) ../$(SCALAPACKLIB) $(PKG_DTOOLS)
 	$(RANLIB) ../$(SCALAPACKLIB)
 

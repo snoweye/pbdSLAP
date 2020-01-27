@@ -42,7 +42,7 @@ single: $(PKG_APBTZ) $(PKG_IPBTZ) $(PKG_SPBTZ) $(PKG_SCPBTZ)
                 $(PKG_APBTZ) $(PKG_IPBTZ) $(PKG_SPBTZ) $(PKG_SCPBTZ)
 	$(RANLIB) ../../$(SCALAPACKLIB)
 
-double: $(PKG_APBTZ) $(PKG_IPBTZ) $(PKG_DPBTZ) $(PKG_DZPBTZ)
+double: single $(PKG_APBTZ) $(PKG_IPBTZ) $(PKG_DPBTZ) $(PKG_DZPBTZ)
 	$(ARCH) $(ARCHFLAGS) ../../$(SCALAPACKLIB) \
                 $(PKG_APBTZ) $(PKG_IPBTZ) $(PKG_DPBTZ) $(PKG_DZPBTZ)
 	$(RANLIB) ../../$(SCALAPACKLIB)

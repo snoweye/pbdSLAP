@@ -41,9 +41,9 @@ ALLTOOLS = $(ALLCTOOLS)
 #  The C PBLAS tools
 #---------------------------------------------------------------------------
 
-SCTOOLS = PB_Cstypeset.o
+SCTOOLS = PB_Cstypeset.o wcc_PB_Cstypeset.o
 
-DCTOOLS = PB_Cdtypeset.o
+DCTOOLS = PB_Cdtypeset.o wcc_PB_Cdtypeset.o
 
 #---------------------------------------------------------------------------
 
@@ -59,7 +59,7 @@ single: $(PKG_SPTOOLS)
 	$(ARCH) $(ARCHFLAGS) ../../$(SCALAPACKLIB) $(PKG_SPTOOLS)
 	$(RANLIB) ../../$(SCALAPACKLIB)
 
-double: $(PKG_DPTOOLS)
+double: single $(PKG_DPTOOLS)
 	$(ARCH) $(ARCHFLAGS) ../../$(SCALAPACKLIB) $(PKG_DPTOOLS)
 	$(RANLIB) ../../$(SCALAPACKLIB)
 

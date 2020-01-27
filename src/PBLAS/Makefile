@@ -50,15 +50,13 @@ single: integer $(PKG_PSBLAS)
 	( cd PBBLAS;  CDEFS='$(CDEFS)' PKG_CPPFLAGS='$(PKG_CPPFLAGS)' PKG_CFLAGS='$(PKG_CFLAGS)' MkInclude='$(MkInclude)' $(MAKE) single )
 	( cd PTZBLAS; CDEFS='$(CDEFS)' PKG_CPPFLAGS='$(PKG_CPPFLAGS)' PKG_CFLAGS='$(PKG_CFLAGS)' MkInclude='$(MkInclude)' $(MAKE) single )
 	( cd PTOOLS;  CDEFS='$(CDEFS)' PKG_CPPFLAGS='$(PKG_CPPFLAGS)' PKG_CFLAGS='$(PKG_CFLAGS)' MkInclude='$(MkInclude)' $(MAKE) single )
-	( cd wcc_PTOOLS;  CDEFS='$(CDEFS)' PKG_CPPFLAGS='$(PKG_CPPFLAGS)' PKG_CFLAGS='$(PKG_CFLAGS)' MkInclude='$(MkInclude)' $(MAKE) single )
 	$(ARCH) $(ARCHFLAGS) ../$(SCALAPACKLIB) $(PKG_PSBLAS)
 	$(RANLIB) ../$(SCALAPACKLIB)
 
-double: integer $(PKG_PDBLAS)
+double: integer single $(PKG_PDBLAS)
 	( cd PBBLAS;  CDEFS='$(CDEFS)' PKG_CPPFLAGS='$(PKG_CPPFLAGS)' PKG_CFLAGS='$(PKG_CFLAGS)' MkInclude='$(MkInclude)' $(MAKE) double )
 	( cd PTZBLAS; CDEFS='$(CDEFS)' PKG_CPPFLAGS='$(PKG_CPPFLAGS)' PKG_CFLAGS='$(PKG_CFLAGS)' MkInclude='$(MkInclude)' $(MAKE) double )
 	( cd PTOOLS;  CDEFS='$(CDEFS)' PKG_CPPFLAGS='$(PKG_CPPFLAGS)' PKG_CFLAGS='$(PKG_CFLAGS)' MkInclude='$(MkInclude)' $(MAKE) double )
-	( cd wcc_PTOOLS;  CDEFS='$(CDEFS)' PKG_CPPFLAGS='$(PKG_CPPFLAGS)' PKG_CFLAGS='$(PKG_CFLAGS)' MkInclude='$(MkInclude)' $(MAKE) double )
 	$(ARCH) $(ARCHFLAGS) ../$(SCALAPACKLIB) $(PKG_PDBLAS)
 	$(RANLIB) ../$(SCALAPACKLIB)
 
@@ -67,7 +65,6 @@ clean :
 	( cd PBBLAS;  $(MAKE) clean )
 	( cd PTZBLAS; $(MAKE) clean )
 	( cd PTOOLS;  $(MAKE) clean )
-	( cd wcc_PTOOLS;  $(MAKE) clean )
 
 .SUFFIXES: .fo .co
 .f.fo :
