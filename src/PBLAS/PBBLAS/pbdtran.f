@@ -10,7 +10,7 @@
 *     David Walker,  Oak Ridge National Laboratory
 *
 *     .. Scalar Arguments ..
-      CHARACTER*1        ADIST, TRANS
+      CHARACTER(LEN=1)   ADIST, TRANS
       INTEGER            IACOL, IAROW, ICCOL, ICONTXT, ICROW, LDA, LDC,
      $                   M, N, NB
       DOUBLE PRECISION   BETA
@@ -618,7 +618,7 @@
 *     April 28, 1996
 *
 *     .. Scalar Arguments ..
-      CHARACTER*1        ADIST, TRANS
+      CHARACTER(LEN=1)   ADIST, TRANS
       INTEGER            ICONTXT, LCMP, LCMQ, LDA, LDB, M, N, NB
       DOUBLE PRECISION   BETA
 *     ..
@@ -709,7 +709,7 @@
 *     April 28, 1996
 *
 *     .. Scalar Arguments ..
-      CHARACTER*1        ADIST, TRANS
+      CHARACTER(LEN=1)   ADIST, TRANS
       INTEGER            ICONTXT, INTV, LDA, LDB, M, N, NB
       DOUBLE PRECISION   BETA
 *     ..
@@ -796,7 +796,7 @@
 *     April 28, 1996
 *
 *     .. Scalar Arguments ..
-      CHARACTER*1          ADIST
+      CHARACTER(LEN=1)     ADIST
       INTEGER              ICONTXT, M, N, NB, LDA, LDB, LCMP, LCMQ, NINT
       DOUBLE PRECISION     BETA
 *     ..
