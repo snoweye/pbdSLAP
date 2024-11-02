@@ -88,11 +88,11 @@ SLmake:
 	cat SLmake.inc.org >> SLmake.inc
 
 $(R_SLAP): SLmake
-	( cd BLACS; $(MAKE) )
-	( cd TOOLS; $(MAKE) )
-	( cd PBLAS; $(MAKE) )
-	( cd REDIST; $(MAKE) )
-	( cd ScaLAPACK; $(MAKE) )
+	cd BLACS; $(MAKE) && cd ../; \
+	cd TOOLS; $(MAKE) && cd ../; \
+	cd PBLAS; $(MAKE) && cd ../; \
+	cd REDIST; $(MAKE) && cd ../; \
+	cd ScaLAPACK; $(MAKE) && cd ../
 	$(RANLIB) $(R_SLAP)
 
 clean:

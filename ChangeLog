@@ -1,6 +1,10 @@
+2024-11-01: Ver. 0.3-7
+  * Remove "$(ALL_CPPFLAGS)" from FCFLAG.
+  * Adjust "$(ARCH)" avoid .o truncation.
+
 2024-10-26: Ver. 0.3-6
   * Fix "Obsolescent feature: Computed GOTO".
-  * Fox "Obsolescent feature: Old-style character length".
+  * Fix "Obsolescent feature: Old-style character length".
 
 2024-01-06: Ver. 0.3-5
   * Remove "rlecuyer".
