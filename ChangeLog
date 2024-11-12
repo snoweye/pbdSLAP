@@ -1,6 +1,8 @@
 2024-11-01: Ver. 0.3-7
   * Remove "$(ALL_CPPFLAGS)" from FCFLAG.
-  * Adjust "$(ARCH)" avoid .o truncation.
+  * Adjust "$(ARCH)" to avoid .o truncation.
+  * Test with clang18.
+  * Rmark "$(ALL_CPPFLAGS)" from "src/SLmake.inc.org".
 
 2024-10-26: Ver. 0.3-6
   * Fix "Obsolescent feature: Computed GOTO".
